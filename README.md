@@ -93,7 +93,7 @@ The **Product Management** application is a Spring Boot-based system designed to
     spring.datasource.driver-class-name=org.postgresql.Driver
     spring.datasource.url=jdbc:postgresql://localhost:5432/user
     spring.datasource.username=postgres
-    spring.datasource.password=29587674
+    spring.datasource.password={YOUR PASSWD}
 
     # ORM Config
     spring.jpa.show-sql=true
