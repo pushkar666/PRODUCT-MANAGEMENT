@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RequestParam;
  * This class is responsible for handling HTTP requests related to product,
  * GTIN, and batch data.
  * It uses the DataService to perform CRUD operations on the database tables.
+ * @author PUSHKAR D
+ * @since 1.0
  */
 @RestController
 @RequestMapping("/api/")

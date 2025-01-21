@@ -27,6 +27,7 @@ public class Gtin {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "gtinId")
     private Integer id;
 
     /**
