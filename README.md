@@ -116,6 +116,10 @@ The **Product Management** application is a Spring Boot-based system designed to
 
 5. Access APIs at `http://localhost:8080/api`.
 
+
+![Alt Text](user_db.png)
+
+![Alt Text](code_block.png)
 ## APIs
 
 ### 1. Create Data
