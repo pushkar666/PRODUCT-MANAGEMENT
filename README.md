@@ -1,7 +1,5 @@
 # Product Management
 
-![GitHub Repo](https://github.com/pushkar666/PRODUCT-MANAGEMENT.git)
-
 ## Table of Contents
 
 - [Introduction](#introduction)
@@ -89,12 +87,18 @@ The **Product Management** application is a Spring Boot-based system designed to
 2. Update database configurations in `src/main/resources/application.properties`:
 
    ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/your_database
-   spring.datasource.username=your_username
-   spring.datasource.password=your_password
-   spring.jpa.hibernate.ddl-auto=update
-   spring.jpa.show-sql=true
-   ``
+   spring.application.name=product-management
+
+    # Database Config
+    spring.datasource.driver-class-name=org.postgresql.Driver
+    spring.datasource.url=jdbc:postgresql://localhost:5432/user
+    spring.datasource.username=postgres
+    spring.datasource.password=29587674
+
+    # ORM Config
+    spring.jpa.show-sql=true
+    spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+    spring.jpa.hibernate.ddl-auto=update
 
    ```
 
@@ -122,8 +126,8 @@ The **Product Management** application is a Spring Boot-based system designed to
   - Request Body:
     ```json
     {
-      "productName": "Product A",
-      "createdOn": "2025-01-20"
+      "productName": "BISCUIT",
+      "createdOn": "2025-01-21"
     }
     ```
 
@@ -133,8 +137,10 @@ The **Product Management** application is a Spring Boot-based system designed to
   - Request Body:
     ```json
     {
-      "gtin": "G1",
-      "product": { "productId": 1 }
+      "gtin": "G12345000001",
+      "product": {
+        "productId": 1
+      }
     }
     ```
 
@@ -143,12 +149,13 @@ The **Product Management** application is a Spring Boot-based system designed to
   - Request Body:
     ```json
     {
-      "mrp": 100,
-      "sp": 80,
-      "purchasePrice": 70,
-      "availableQuantity": 10,
-      "inwardedOn": "2025-01-18",
-      "gtin": { "id": 1 }
+        "mrp": 100,
+        "sp": 95,
+        "purchasePrice": 60,  "availableQuantity": 0,
+        "inwardedOn": "2025-01-21",
+        "gtin": {
+            "id": 1
+        }
     }
     ```
 
@@ -166,7 +173,7 @@ The **Product Management** application is a Spring Boot-based system designed to
 ## Technologies Used
 
 - **Backend**: Spring Boot, Spring Data JPA
-- **Database**: MySQL (or other relational DBs)
+- **Database**: PostgreSQL
 - **Build Tool**: Maven
 - **Language**: Java
 
