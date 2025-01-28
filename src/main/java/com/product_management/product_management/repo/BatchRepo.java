@@ -11,8 +11,11 @@ import com.product_management.product_management.entity.Batch;
 
 /**
  * This interface represents a repository for managing {@link Batch} entities.
- * It extends Spring Data JPA's {@link JpaRepository} interface, providing basic CRUD operations.
- * Additionally, it includes custom queries for retrieving batches based on their available quantity.
+ * It extends Spring Data JPA's {@link JpaRepository} interface, providing basic
+ * CRUD operations.
+ * Additionally, it includes custom queries for retrieving batches based on
+ * their available quantity.
+ * 
  * @author PUSHKAR D
  * @since 1.0
  */
@@ -22,7 +25,8 @@ public interface BatchRepo extends JpaRepository<Batch, Integer> {
     /**
      * Retrieves a list of batches with a positive available quantity.
      *
-     * @return a list of {@link Batch} entities with available quantity greater than 0.
+     * @return a list of {@link Batch} entities with available quantity greater than
+     *         0.
      */
     @Query("SELECT b FROM Batch b WHERE b.availableQuantity > 0")
     List<Batch> findPositiveAvailableQuantityBatches();
@@ -32,10 +36,20 @@ public interface BatchRepo extends JpaRepository<Batch, Integer> {
     // List<Gtin> findGtinsWithPositiveQuantityBatches();
 
     /**
-     * Retrieves a list of batches with a non-positive available quantity, sorted by inward date in descending order.
+     * Retrieves a list of batches with a non-positive available quantity, sorted by
+     * inward date in descending order.
      *
-     * @return a list of {@link Batch} entities with available quantity less than or equal to 0, sorted by inward date in descending order.
+     * @return a list of {@link Batch} entities with available quantity less than or
+     *         equal to 0, sorted by inward date in descending order.
      */
-    @Query("SELECT b FROM Batch b WHERE b.availableQuantity <= 0 ORDER BY b.inwardedOn DESC")
+
+
+    
+    // @Query("SELECT b FROM Batch b WHERE b.availableQuantity <= 0 ORDER BY b.inwardedOn DESC")
+    // List<Batch> findNegativeOrZeroAvailableQuantityBatches();
+
+    @Query(value = "SELECT * FROM batch_table b WHERE b.available_quantity <= 0 ORDER BY b.inwarded_on DESC", nativeQuery = true)
     List<Batch> findNegativeOrZeroAvailableQuantityBatches();
+
+    // @Query("Select b FROM P")
 }
